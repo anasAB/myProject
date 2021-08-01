@@ -1,46 +1,47 @@
 import { shallow } from 'enzyme';
 import App from './App';
 import Chop from './chop';
-import renderer from 'react-test-renderer';
 
 
-const MockDataset = {
+const mockDataset = {
   bread: "baguette",
   cheese: "brie cheese",
 };
 
-const myTemplate: string = `I like to eat ${MockDataset.bread} and ${MockDataset.cheese}`;
+const mockMyTemplate = `I like to eat ${mockDataset.bread} and ${mockDataset.cheese}`;
 
-describe('rendering App', () => {
+describe('rendering Components', () => {
 
-  it('should render correctly', () => {
-    const AppWrapper = shallow(<App />);
-    console.log('AppWrapper', AppWrapper);
-    expect(AppWrapper).toMatchSnapshot();
+  it('should render App correctly', () => {
+    const appShallow = shallow(<App />);
+    expect(appShallow).toBeDefined();
+    expect(appShallow).toMatchSnapshot();
   })
 
-  it('should render chop', () => {
-    const tree = renderer.create(<Chop data={MockDataset} template={myTemplate} />).toJSON()
-    expect(tree).toMatchSnapshot();
-    // expect(tree).tobe
-    console.log('tree', tree);
+  it('should render Chop correctly', () => {
+    const chopShallow = shallow(<Chop data={mockDataset} template={mockMyTemplate} />)
+    expect(chopShallow).toBeDefined();
+    expect(chopShallow).toMatchSnapshot();
   })
-
 
   //**! with correct props */
   it('should render chop with chop element', () => {
-    const wrapper = shallow(<Chop data={MockDataset} template={myTemplate} />);
-    expect(wrapper.contains(<p>{myTemplate}</p>)).toBeTruthy();
-
+    const chopShallow = shallow(<Chop data={mockDataset} template={mockMyTemplate} />);
+    expect(chopShallow.html()).toBe("<div style=\"color:green\"><p>I like to eat baguette and brie cheese</p></div>")
   })
 
   //**! missing one of the props */
   it('should render the error Message', () => {
-    const MockEmptyDataset = null
-    const wrapper = shallow(<Chop data={MockEmptyDataset} template={myTemplate} />);
-    expect(wrapper.contains(<p>template and dataset are mandatory parameters</p>)).toBeTruthy();
+    const mockEmptyDataset = null
+    const chopShallow = shallow(<Chop data={mockEmptyDataset} template={mockMyTemplate} />);
+    // expect(chopShallow.contains().toBeTruthy();
+    expect(chopShallow.html()).toBe("<div style=\"color:red\"><p>template and dataset are mandatory parameters</p></div>")
+
   })
 
-
 });
+
+
+
+
 
