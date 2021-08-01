@@ -1,5 +1,5 @@
 export interface IDataset {
-    bread: string 
-    cheese: string
+    bread: string | number
+    cheese: string | number
 }
 
