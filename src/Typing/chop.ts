@@ -1,4 +1,4 @@
 export interface IChop {
-    data: any 
-    template: any
+    data: object 
+    template: string
 }

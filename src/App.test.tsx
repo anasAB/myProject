@@ -34,9 +34,7 @@ describe('rendering Components', () => {
   it('should render the error Message', () => {
     const mockEmptyDataset = null
     const chopShallow = shallow(<Chop data={mockEmptyDataset} template={mockMyTemplate} />);
-    // expect(chopShallow.contains().toBeTruthy();
     expect(chopShallow.html()).toBe("<div style=\"color:red\"><p>template and dataset are mandatory parameters</p></div>")
-
   })
 
 });
