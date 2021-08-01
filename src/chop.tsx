@@ -1,22 +1,22 @@
 
-// type SupportedData = Object
 
-
-interface data {
-    bread: string,
-    cheese: string,
-}
-
-
-const Chop = (data: data, template: string) => {
-    console.log('data-->', data);
-    console.log('template-->', template);
-
+const Chop = (props) => {
+    const { data, template } = props
+   
     if (data && template) {
-        return console.log(template);
+        return (
+            <div style={{ color: 'green' }}>
+                <p>{template}</p>
+            </div>
+        )
+    } else {
+        return (
+            <div style={{ color: 'red' }}>
+                <p>template and dataset are mandatory parameters</p>
+            </div>
+        )
     }
-
-    alert('template and dataset are mandatory parameters')
 }
+
 
 export default Chop
