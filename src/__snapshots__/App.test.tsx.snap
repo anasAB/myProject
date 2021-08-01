@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering App should render chop 1`] = `
+<div
+  style={
+    Object {
+      "color": "green",
+    }
+  }
+>
+  <p>
+    I like to eat baguette and brie cheese
+  </p>
+</div>
+`;
+
+exports[`rendering App should render correctly 1`] = `ShallowWrapper {}`;
