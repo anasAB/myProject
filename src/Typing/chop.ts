@@ -1,4 +1,7 @@
 export interface IChop {
-    data: object 
+    data: {
+        bread:string | number
+        cheese: string | number
+    } 
     template: string
 }
