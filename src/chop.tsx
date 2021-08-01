@@ -1,6 +1,7 @@
 
+import { IChop } from './Typing/chop';
 
-const Chop = (props) => {
+const Chop = (props:IChop) => {
     const { data, template } = props
    
     if (data && template) {

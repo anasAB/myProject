@@ -1,6 +1,6 @@
 import './App.css';
 import Chop from './chop';
-import { IDataset } from './Typing/Types';
+import { IDataset } from './Typing/Dataset';
 
 
 const dataset: IDataset = {
